@@ -1,6 +1,6 @@
-# WhatApi.DevelopersApi
+# MellovApi.DevelopersApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/conrisc2/WhatApi/1.2.1*
+All URIs are relative to *https://what-appy-server.herokuapp.com/whatapi*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,12 +18,12 @@ signs in user
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
+var MellovApi = require('mellov_api');
 
-var apiInstance = new WhatApi.DevelopersApi();
+var apiInstance = new MellovApi.DevelopersApi();
 
 var opts = { 
-  'userCredentials': new WhatApi.UserPost() // UserPost | User's credentials
+  'userCredentials': new MellovApi.UserPost() // UserPost | User's credentials
 };
 
 var callback = function(error, data, response) {
@@ -65,12 +65,12 @@ signs up new user
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
+var MellovApi = require('mellov_api');
 
-var apiInstance = new WhatApi.DevelopersApi();
+var apiInstance = new MellovApi.DevelopersApi();
 
 var opts = { 
-  'userCredentials': new WhatApi.UserPost() // UserPost | User's credentials
+  'userCredentials': new MellovApi.UserPost() // UserPost | User's credentials
 };
 
 var callback = function(error, data, response) {

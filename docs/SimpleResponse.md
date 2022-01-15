@@ -1,4 +1,4 @@
-# WhatApi.SimpleResponse
+# MellovApi.SimpleResponse
 
 ## Properties
 Name | Type | Description | Notes

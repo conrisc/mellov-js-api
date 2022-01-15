@@ -1,6 +1,6 @@
-# WhatApi.UsersApi
+# MellovApi.UsersApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/conrisc2/WhatApi/1.2.1*
+All URIs are relative to *https://what-appy-server.herokuapp.com/whatapi*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,8 +29,8 @@ Adds an item to the database
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -38,10 +38,10 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var opts = { 
-  'noteItem': new WhatApi.NoteItem() // NoteItem | Note item to add
+  'noteItem': new MellovApi.NoteItem() // NoteItem | Note item to add
 };
 
 var callback = function(error, data, response) {
@@ -83,8 +83,8 @@ Adds an item to the database
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -92,10 +92,10 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var opts = { 
-  'songItem': new WhatApi.SongItem() // SongItem | Song item to add
+  'songItem': new MellovApi.SongItem() // SongItem | Song item to add
 };
 
 var callback = function(error, data, response) {
@@ -137,8 +137,8 @@ Adds an item to the database
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -146,10 +146,10 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var opts = { 
-  'tagItem': new WhatApi.TagItem() // TagItem | Tag item to add
+  'tagItem': new MellovApi.TagItem() // TagItem | Tag item to add
 };
 
 var callback = function(error, data, response) {
@@ -191,8 +191,8 @@ By passing in url, you can fetch data
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -200,7 +200,7 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var title = "title_example"; // String | title to search
 
@@ -248,8 +248,8 @@ Removes an item from the database
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -257,7 +257,7 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var id = "id_example"; // String | note id
 
@@ -301,8 +301,8 @@ Removes an item from the database
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -310,7 +310,7 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var id = "id_example"; // String | song id
 
@@ -354,8 +354,8 @@ Removes an item from the database
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -363,7 +363,7 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var id = "id_example"; // String | tag id
 
@@ -407,8 +407,8 @@ By passing in the appropriate options, you can search for available note in the 
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -416,7 +416,7 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var opts = { 
   'id': "id_example", // String | note id
@@ -465,8 +465,8 @@ By passing in the appropriate options, you can search for available song in the 
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -474,7 +474,7 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var opts = { 
   'id': "id_example", // String | song id
@@ -529,8 +529,8 @@ By passing in the appropriate options, you can search for available tag in the s
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -538,7 +538,7 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var opts = { 
   'id': "id_example", // String | tag id
@@ -587,8 +587,8 @@ Updates an item in the database
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -596,10 +596,10 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var opts = { 
-  'noteItem': new WhatApi.NoteItem() // NoteItem | Note item to update
+  'noteItem': new MellovApi.NoteItem() // NoteItem | Note item to update
 };
 
 var callback = function(error, data, response) {
@@ -641,8 +641,8 @@ Updates an item in the database
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -650,10 +650,10 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var opts = { 
-  'songItem': new WhatApi.SongItem() // SongItem | Note item to update
+  'songItem': new MellovApi.SongItem() // SongItem | Note item to update
 };
 
 var callback = function(error, data, response) {
@@ -695,8 +695,8 @@ Updates an item in the database
 
 ### Example
 ```javascript
-var WhatApi = require('what_api');
-var defaultClient = WhatApi.ApiClient.instance;
+var MellovApi = require('mellov_api');
+var defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
 var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
@@ -704,10 +704,10 @@ AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new WhatApi.UsersApi();
+var apiInstance = new MellovApi.UsersApi();
 
 var opts = { 
-  'tagItem': new WhatApi.TagItem() // TagItem | Note item to update
+  'tagItem': new MellovApi.TagItem() // TagItem | Note item to update
 };
 
 var callback = function(error, data, response) {

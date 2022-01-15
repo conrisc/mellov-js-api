@@ -1,7 +1,7 @@
 {
-  "name": "what_api",
-  "version": "1.2.2",
-  "description": "Mellov_JS_API",
+  "name": "mellov_api",
+  "version": "1.2.3",
+  "description": "Mellov_API",
   "license": "Apache 2.0",
   "main": "src/index.js",
   "scripts": {
