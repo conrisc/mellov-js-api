@@ -29,29 +29,26 @@ Adds an item to the database
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var opts = { 
+let opts = { 
   'noteItem': new MellovApi.NoteItem() // NoteItem | Note item to add
 };
+apiInstance.addNote(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.addNote(opts, callback);
 ```
 
 ### Parameters
@@ -83,29 +80,26 @@ Adds an item to the database
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var opts = { 
+let opts = { 
   'songItem': new MellovApi.SongItem() // SongItem | Song item to add
 };
+apiInstance.addSong(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.addSong(opts, callback);
 ```
 
 ### Parameters
@@ -137,29 +131,26 @@ Adds an item to the database
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var opts = { 
+let opts = { 
   'tagItem': new MellovApi.TagItem() // TagItem | Tag item to add
 };
+apiInstance.addTag(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.addTag(opts, callback);
 ```
 
 ### Parameters
@@ -191,31 +182,28 @@ By passing in url, you can fetch data
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var title = "title_example"; // String | title to search
+let title = "title_example"; // String | title to search
 
-var opts = { 
+let opts = { 
   'limit': 5 // Number | maximum number of records to return
 };
+apiInstance.getYtItems(title, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.getYtItems(title, opts, callback);
 ```
 
 ### Parameters
@@ -248,28 +236,25 @@ Removes an item from the database
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var id = "id_example"; // String | note id
+let id = "id_example"; // String | note id
 
+apiInstance.removeNote(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.removeNote(id, callback);
 ```
 
 ### Parameters
@@ -301,28 +286,25 @@ Removes an item from the database
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var id = "id_example"; // String | song id
+let id = "id_example"; // String | song id
 
+apiInstance.removeSong(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.removeSong(id, callback);
 ```
 
 ### Parameters
@@ -354,28 +336,25 @@ Removes an item from the database
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var id = "id_example"; // String | tag id
+let id = "id_example"; // String | tag id
 
+apiInstance.removeTag(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.removeTag(id, callback);
 ```
 
 ### Parameters
@@ -407,31 +386,28 @@ By passing in the appropriate options, you can search for available note in the 
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var opts = { 
+let opts = { 
   'id': "id_example", // String | note id
   'skip': 56, // Number | number of records to skip for pagination
   'limit': 56 // Number | maximum number of records to return
 };
+apiInstance.searchNote(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.searchNote(opts, callback);
 ```
 
 ### Parameters
@@ -465,18 +441,18 @@ By passing in the appropriate options, you can search for available song in the 
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var opts = { 
+let opts = { 
   'id': "id_example", // String | song id
   'skip': 56, // Number | number of records to skip for pagination
   'limit': 56, // Number | maximum number of records to return
@@ -484,15 +460,12 @@ var opts = {
   'tags': ["tags_example"], // [String] | tags which song must contain
   'sort': "sort_example" // String | type of sort to use
 };
+apiInstance.searchSong(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.searchSong(opts, callback);
 ```
 
 ### Parameters
@@ -529,31 +502,28 @@ By passing in the appropriate options, you can search for available tag in the s
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var opts = { 
+let opts = { 
   'id': "id_example", // String | tag id
   'skip': 56, // Number | number of records to skip for pagination
   'limit': 56 // Number | maximum number of records to return
 };
+apiInstance.searchTag(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.searchTag(opts, callback);
 ```
 
 ### Parameters
@@ -587,29 +557,26 @@ Updates an item in the database
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var opts = { 
+let opts = { 
   'noteItem': new MellovApi.NoteItem() // NoteItem | Note item to update
 };
+apiInstance.updateNote(opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.updateNote(opts, callback);
 ```
 
 ### Parameters
@@ -641,29 +608,26 @@ Updates an item in the database
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var opts = { 
+let opts = { 
   'songItem': new MellovApi.SongItem() // SongItem | Note item to update
 };
+apiInstance.updateSong(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.updateSong(opts, callback);
 ```
 
 ### Parameters
@@ -695,29 +659,26 @@ Updates an item in the database
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
-var defaultClient = MellovApi.ApiClient.instance;
+import {MellovApi} from 'mellov_api';
+let defaultClient = MellovApi.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeader
-var AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
+let AuthorizationHeader = defaultClient.authentications['AuthorizationHeader'];
 AuthorizationHeader.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeader.apiKeyPrefix = 'Token';
 
-var apiInstance = new MellovApi.UsersApi();
+let apiInstance = new MellovApi.UsersApi();
 
-var opts = { 
+let opts = { 
   'tagItem': new MellovApi.TagItem() // TagItem | Note item to update
 };
+apiInstance.updateTag(opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.updateTag(opts, callback);
 ```
 
 ### Parameters

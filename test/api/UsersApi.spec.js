@@ -46,16 +46,14 @@
           opts.noteItem.creationDate = "Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)";
           opts.noteItem.text = "Some note";
 
-          instance.addNote(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.addNote(opts).then(function(data) {
             // TODO: update response assertions
             expect(data).to.be.a('string');
             // expect(data).to.be(null);
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -74,16 +72,14 @@
           opts.songItem.dateAdded = "Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)";
           opts.songItem.tags = ["dance","party"];
 
-          instance.addSong(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.addSong(opts).then(function(data) {
             // TODO: update response assertions
             expect(data).to.be.a('string');
             // expect(data).to.be(null);
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -99,16 +95,14 @@
           opts.tagItem.id = "5daef72831cae99923dad6ez";
           opts.tagItem.name = "Dance";
 
-          instance.addTag(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.addTag(opts).then(function(data) {
             // TODO: update response assertions
             expect(data).to.be.a('string');
             // expect(data).to.be(null);
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -123,11 +117,7 @@
           var opts = {};
           opts.limit = 5;
 
-          instance.getYtItems(title, opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.getYtItems(title, opts).then(function(data) {
             // TODO: update response assertions
             let dataCtr = data;
             expect(dataCtr).to.be.an(Array);
@@ -136,14 +126,16 @@
               let data = dataCtr[p];
               expect(data).to.be.a(MellovApi.YtVideoItem);
               expect(data.title).to.be.a('string');
-              expect(data.title).to.be("LP - Muddy Waters");
+              // expect(data.title).to.be("LP - Muddy Waters");
               expect(data.videoId).to.be.a('string');
-              expect(data.videoId).to.be("Ss8t7a8n0U4");
+              // expect(data.videoId).to.be("Ss8t7a8n0U4");
               expect(data.thumbnailUrl).to.be.a('string');
-              expect(data.thumbnailUrl).to.be("https://i.ytimg.com/vi/Ss8t7a8n0U4/default.jpg");
+              // expect(data.thumbnailUrl).to.be("https://i.ytimg.com/vi/Ss8t7a8n0U4/default.jpg");
             }
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -156,13 +148,11 @@
           /*
           var id = "id_example";
 
-          instance.removeNote(id, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.removeNote(id).then(function(data) {
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -175,13 +165,11 @@
           /*
           var id = "id_example";
 
-          instance.removeSong(id, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.removeSong(id).then(function(data) {
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -194,13 +182,11 @@
           /*
           var id = "id_example";
 
-          instance.removeTag(id, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.removeTag(id).then(function(data) {
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -216,11 +202,7 @@
           opts.skip = 56;
           opts.limit = 56;
 
-          instance.searchNote(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.searchNote(opts).then(function(data) {
             // TODO: update response assertions
             let dataCtr = data;
             expect(dataCtr).to.be.an(Array);
@@ -229,14 +211,16 @@
               let data = dataCtr[p];
               expect(data).to.be.a(MellovApi.NoteItem);
               expect(data.id).to.be.a('string');
-              expect(data.id).to.be("4daef72846cae99923dfd6ez");
+              // expect(data.id).to.be("4daef72846cae99923dfd6ez");
               expect(data.creationDate).to.be.a('string');
-              expect(data.creationDate).to.be("Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)");
+              // expect(data.creationDate).to.be("Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)");
               expect(data.text).to.be.a('string');
-              expect(data.text).to.be("Some note");
+              // expect(data.text).to.be("Some note");
             }
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -255,11 +239,7 @@
           opts.tags = ["tags_example"];
           opts.sort = "sort_example";
 
-          instance.searchSong(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.searchSong(opts).then(function(data) {
             // TODO: update response assertions
             let dataCtr = data;
             expect(dataCtr).to.be.an(Array);
@@ -268,13 +248,13 @@
               let data = dataCtr[p];
               expect(data).to.be.a(MellovApi.SongItem);
               expect(data.id).to.be.a('string');
-              expect(data.id).to.be("5daef72831cae99923dad6ez");
+              // expect(data.id).to.be("5daef72831cae99923dad6ez");
               expect(data.title).to.be.a('string');
-              expect(data.title).to.be("G-Eazy - Far alone");
+              // expect(data.title).to.be("G-Eazy - Far alone");
               expect(data.url).to.be.a('string');
-              expect(data.url).to.be("https://youtube.com/watch?v=sxV1_Lr1yf0");
+              // expect(data.url).to.be("https://youtube.com/watch?v=sxV1_Lr1yf0");
               expect(data.dateAdded).to.be.a('string');
-              expect(data.dateAdded).to.be("Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)");
+              // expect(data.dateAdded).to.be("Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)");
               {
                 let dataCtr = data.tags;
                 expect(dataCtr).to.be.an(Array);
@@ -282,12 +262,14 @@
                 for (let p in dataCtr) {
                   let data = dataCtr[p];
                   expect(data).to.be.a('string');
-                  expect(data).to.be("");
+                  // expect(data).to.be("");
                 }
               }
             }
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -303,11 +285,7 @@
           opts.skip = 56;
           opts.limit = 56;
 
-          instance.searchTag(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.searchTag(opts).then(function(data) {
             // TODO: update response assertions
             let dataCtr = data;
             expect(dataCtr).to.be.an(Array);
@@ -316,12 +294,14 @@
               let data = dataCtr[p];
               expect(data).to.be.a(MellovApi.TagItem);
               expect(data.id).to.be.a('string');
-              expect(data.id).to.be("5daef72831cae99923dad6ez");
+              // expect(data.id).to.be("5daef72831cae99923dad6ez");
               expect(data.name).to.be.a('string');
-              expect(data.name).to.be("Dance");
+              // expect(data.name).to.be("Dance");
             }
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -338,13 +318,11 @@
           opts.noteItem.creationDate = "Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)";
           opts.noteItem.text = "Some note";
 
-          instance.updateNote(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.updateNote(opts).then(function(data) {
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -363,21 +341,17 @@
           opts.songItem.dateAdded = "Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)";
           opts.songItem.tags = ["dance","party"];
 
-          instance.updateSong(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.updateSong(opts).then(function(data) {
             // TODO: update response assertions
             expect(data).to.be.a(MellovApi.SongItem);
             expect(data.id).to.be.a('string');
-            expect(data.id).to.be("5daef72831cae99923dad6ez");
+            // expect(data.id).to.be("5daef72831cae99923dad6ez");
             expect(data.title).to.be.a('string');
-            expect(data.title).to.be("G-Eazy - Far alone");
+            // expect(data.title).to.be("G-Eazy - Far alone");
             expect(data.url).to.be.a('string');
-            expect(data.url).to.be("https://youtube.com/watch?v=sxV1_Lr1yf0");
+            // expect(data.url).to.be("https://youtube.com/watch?v=sxV1_Lr1yf0");
             expect(data.dateAdded).to.be.a('string');
-            expect(data.dateAdded).to.be("Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)");
+            // expect(data.dateAdded).to.be("Wed Oct 09 2019 13:39:18 GMT+0200 (Central European Summer Time)");
             {
               let dataCtr = data.tags;
               expect(dataCtr).to.be.an(Array);
@@ -385,11 +359,13 @@
               for (let p in dataCtr) {
                 let data = dataCtr[p];
                 expect(data).to.be.a('string');
-                expect(data).to.be("");
+                // expect(data).to.be("");
               }
             }
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -405,13 +381,11 @@
           opts.tagItem.id = "5daef72831cae99923dad6ez";
           opts.tagItem.name = "Dance";
 
-          instance.updateTag(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.updateTag(opts).then(function(data) {
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:

@@ -14,128 +14,124 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/SimpleResponse', 'model/UserPost'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/SimpleResponse'), require('../model/UserPost'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.MellovApi) {
-      root.MellovApi = {};
-    }
-    root.MellovApi.DevelopersApi = factory(root.MellovApi.ApiClient, root.MellovApi.SimpleResponse, root.MellovApi.UserPost);
-  }
-}(this, function(ApiClient, SimpleResponse, UserPost) {
-  'use strict';
+import {ApiClient} from "../ApiClient";
+import {SimpleResponse} from '../model/SimpleResponse';
+import {UserPost} from '../model/UserPost';
 
-  /**
-   * Developers service.
-   * @module api/DevelopersApi
-   * @version 1.2.3
-   */
-
-  /**
-   * Constructs a new DevelopersApi. 
-   * @alias module:api/DevelopersApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
-
+/**
+* Developers service.
+* @module api/DevelopersApi
+* @version 1.2.3
+*/
+export class DevelopersApi {
 
     /**
-     * Callback function to receive the result of the signInUser operation.
-     * @callback module:api/DevelopersApi~signInUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SimpleResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
+    * Constructs a new DevelopersApi. 
+    * @alias module:api/DevelopersApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
+    }
+
+
 
     /**
      * login user
      * signs in user
      * @param {Object} opts Optional parameters
      * @param {module:model/UserPost} opts.userCredentials User's credentials
-     * @param {module:api/DevelopersApi~signInUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SimpleResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SimpleResponse} and HTTP response
      */
-    this.signInUser = function(opts, callback) {
+    signInUserWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = opts['userCredentials'];
+      let postBody = opts['userCredentials'];
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = SimpleResponse;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SimpleResponse;
 
       return this.apiClient.callApi(
         '/user/login', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the signUpUser operation.
-     * @callback module:api/DevelopersApi~signUpUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SimpleResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * login user
+     * signs in user
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UserPost} opts.userCredentials User's credentials
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SimpleResponse}
      */
+    signInUser(opts) {
+      return this.signInUserWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * register new user
      * signs up new user
      * @param {Object} opts Optional parameters
      * @param {module:model/UserPost} opts.userCredentials User's credentials
-     * @param {module:api/DevelopersApi~signUpUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SimpleResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SimpleResponse} and HTTP response
      */
-    this.signUpUser = function(opts, callback) {
+    signUpUserWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = opts['userCredentials'];
+      let postBody = opts['userCredentials'];
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = SimpleResponse;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SimpleResponse;
 
       return this.apiClient.callApi(
         '/user/register', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
-  };
 
-  return exports;
-}));
+    /**
+     * register new user
+     * signs up new user
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UserPost} opts.userCredentials User's credentials
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SimpleResponse}
+     */
+    signUpUser(opts) {
+      return this.signUpUserWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+}

@@ -14,95 +14,100 @@
  *
  */
 
-(function(factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/NoteItem', 'model/SimpleResponse', 'model/SongItem', 'model/TagItem', 'model/UserPost', 'model/YtVideoItem', 'api/DevelopersApi', 'api/UsersApi'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/NoteItem'), require('./model/SimpleResponse'), require('./model/SongItem'), require('./model/TagItem'), require('./model/UserPost'), require('./model/YtVideoItem'), require('./api/DevelopersApi'), require('./api/UsersApi'));
-  }
-}(function(ApiClient, NoteItem, SimpleResponse, SongItem, TagItem, UserPost, YtVideoItem, DevelopersApi, UsersApi) {
-  'use strict';
+import {ApiClient} from './ApiClient';
+import {NoteItem} from './model/NoteItem';
+import {SimpleResponse} from './model/SimpleResponse';
+import {SongItem} from './model/SongItem';
+import {TagItem} from './model/TagItem';
+import {UserPost} from './model/UserPost';
+import {YtVideoItem} from './model/YtVideoItem';
+import {DevelopersApi} from './api/DevelopersApi';
+import {UsersApi} from './api/UsersApi';
 
-  /**
-   * Mellov_API.<br>
-   * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
-   * <p>
-   * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
-   * <pre>
-   * var MellovApi = require('index'); // See note below*.
-   * var xxxSvc = new MellovApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyyModel = new MellovApi.Yyy(); // Construct a model instance.
-   * yyyModel.someProperty = 'someValue';
-   * ...
-   * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
-   * ...
-   * </pre>
-   * <em>*NOTE: For a top-level AMD script, use require(['index'], function(){...})
-   * and put the application logic within the callback function.</em>
-   * </p>
-   * <p>
-   * A non-AMD browser application (discouraged) might do something like this:
-   * <pre>
-   * var xxxSvc = new MellovApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyy = new MellovApi.Yyy(); // Construct a model instance.
-   * yyyModel.someProperty = 'someValue';
-   * ...
-   * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
-   * ...
-   * </pre>
-   * </p>
-   * @module index
-   * @version 1.2.3
-   */
-  var exports = {
+
+/**
+* Mellov_API.<br>
+* The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
+* <p>
+* An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
+* <pre>
+* var MellovApi = require('index'); // See note below*.
+* var xxxSvc = new MellovApi.XxxApi(); // Allocate the API class we're going to use.
+* var yyyModel = new MellovApi.Yyy(); // Construct a model instance.
+* yyyModel.someProperty = 'someValue';
+* ...
+* var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
+* ...
+* </pre>
+* <em>*NOTE: For a top-level AMD script, use require(['index'], function(){...})
+* and put the application logic within the callback function.</em>
+* </p>
+* <p>
+* A non-AMD browser application (discouraged) might do something like this:
+* <pre>
+* var xxxSvc = new MellovApi.XxxApi(); // Allocate the API class we're going to use.
+* var yyy = new MellovApi.Yyy(); // Construct a model instance.
+* yyyModel.someProperty = 'someValue';
+* ...
+* var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
+* ...
+* </pre>
+* </p>
+* @module index
+* @version 1.2.3
+*/
+export {
     /**
      * The ApiClient constructor.
      * @property {module:ApiClient}
      */
-    ApiClient: ApiClient,
+    ApiClient,
+
     /**
      * The NoteItem model constructor.
      * @property {module:model/NoteItem}
      */
-    NoteItem: NoteItem,
+    NoteItem,
+
     /**
      * The SimpleResponse model constructor.
      * @property {module:model/SimpleResponse}
      */
-    SimpleResponse: SimpleResponse,
+    SimpleResponse,
+
     /**
      * The SongItem model constructor.
      * @property {module:model/SongItem}
      */
-    SongItem: SongItem,
+    SongItem,
+
     /**
      * The TagItem model constructor.
      * @property {module:model/TagItem}
      */
-    TagItem: TagItem,
+    TagItem,
+
     /**
      * The UserPost model constructor.
      * @property {module:model/UserPost}
      */
-    UserPost: UserPost,
+    UserPost,
+
     /**
      * The YtVideoItem model constructor.
      * @property {module:model/YtVideoItem}
      */
-    YtVideoItem: YtVideoItem,
-    /**
-     * The DevelopersApi service constructor.
-     * @property {module:api/DevelopersApi}
-     */
-    DevelopersApi: DevelopersApi,
-    /**
-     * The UsersApi service constructor.
-     * @property {module:api/UsersApi}
-     */
-    UsersApi: UsersApi
-  };
+    YtVideoItem,
 
-  return exports;
-}));
+    /**
+    * The DevelopersApi service constructor.
+    * @property {module:api/DevelopersApi}
+    */
+    DevelopersApi,
+
+    /**
+    * The UsersApi service constructor.
+    * @property {module:api/UsersApi}
+    */
+    UsersApi
+};

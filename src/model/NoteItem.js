@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.MellovApi) {
-      root.MellovApi = {};
-    }
-    root.MellovApi.NoteItem = factory(root.MellovApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The NoteItem model module.
-   * @module model/NoteItem
-   * @version 1.2.3
-   */
-
+/**
+ * The NoteItem model module.
+ * @module model/NoteItem
+ * @version 1.2.3
+ */
+export class NoteItem {
   /**
    * Constructs a new <code>NoteItem</code>.
    * @alias module:model/NoteItem
@@ -44,10 +29,10 @@
    * @param creationDate {String} 
    * @param text {String} 
    */
-  var exports = function(creationDate, text) {
+  constructor(creationDate, text) {
     this.creationDate = creationDate;
     this.text = text;
-  };
+  }
 
   /**
    * Constructs a <code>NoteItem</code> from a plain JavaScript object, optionally creating a new instance.
@@ -56,9 +41,9 @@
    * @param {module:model/NoteItem} obj Optional instance to populate.
    * @return {module:model/NoteItem} The populated <code>NoteItem</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new NoteItem();
       if (data.hasOwnProperty('_id'))
         obj.id = ApiClient.convertToType(data['_id'], 'String');
       if (data.hasOwnProperty('creationDate'))
@@ -68,23 +53,21 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {String} id
+ */
+NoteItem.prototype.id = undefined;
 
-  /**
-   * @member {String} creationDate
-   */
-  exports.prototype.creationDate = undefined;
+/**
+ * @member {String} creationDate
+ */
+NoteItem.prototype.creationDate = undefined;
 
-  /**
-   * @member {String} text
-   */
-  exports.prototype.text = undefined;
+/**
+ * @member {String} text
+ */
+NoteItem.prototype.text = undefined;
 
 
-  return exports;
-
-}));

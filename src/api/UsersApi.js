@@ -14,179 +14,175 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/NoteItem', 'model/SongItem', 'model/TagItem', 'model/YtVideoItem'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/NoteItem'), require('../model/SongItem'), require('../model/TagItem'), require('../model/YtVideoItem'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.MellovApi) {
-      root.MellovApi = {};
-    }
-    root.MellovApi.UsersApi = factory(root.MellovApi.ApiClient, root.MellovApi.NoteItem, root.MellovApi.SongItem, root.MellovApi.TagItem, root.MellovApi.YtVideoItem);
-  }
-}(this, function(ApiClient, NoteItem, SongItem, TagItem, YtVideoItem) {
-  'use strict';
+import {ApiClient} from "../ApiClient";
+import {NoteItem} from '../model/NoteItem';
+import {SongItem} from '../model/SongItem';
+import {TagItem} from '../model/TagItem';
+import {YtVideoItem} from '../model/YtVideoItem';
 
-  /**
-   * Users service.
-   * @module api/UsersApi
-   * @version 1.2.3
-   */
-
-  /**
-   * Constructs a new UsersApi. 
-   * @alias module:api/UsersApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
-
+/**
+* Users service.
+* @module api/UsersApi
+* @version 1.2.3
+*/
+export class UsersApi {
 
     /**
-     * Callback function to receive the result of the addNote operation.
-     * @callback module:api/UsersApi~addNoteCallback
-     * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
+    * Constructs a new UsersApi. 
+    * @alias module:api/UsersApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
+    }
+
+
 
     /**
      * adds a note item
      * Adds an item to the database
      * @param {Object} opts Optional parameters
      * @param {module:model/NoteItem} opts.noteItem Note item to add
-     * @param {module:api/UsersApi~addNoteCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link 'String'} and HTTP response
      */
-    this.addNote = function(opts, callback) {
+    addNoteWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = opts['noteItem'];
+      let postBody = opts['noteItem'];
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = ['application/json'];
-      var accepts = ['text/plain'];
-      var returnType = 'String';
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = ['application/json'];
+      let accepts = ['text/plain'];
+      let returnType = 'String';
 
       return this.apiClient.callApi(
         '/note', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the addSong operation.
-     * @callback module:api/UsersApi~addSongCallback
-     * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * adds a note item
+     * Adds an item to the database
+     * @param {Object} opts Optional parameters
+     * @param {module:model/NoteItem} opts.noteItem Note item to add
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link 'String'}
      */
+    addNote(opts) {
+      return this.addNoteWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * adds a song item
      * Adds an item to the database
      * @param {Object} opts Optional parameters
      * @param {module:model/SongItem} opts.songItem Song item to add
-     * @param {module:api/UsersApi~addSongCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link 'String'} and HTTP response
      */
-    this.addSong = function(opts, callback) {
+    addSongWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = opts['songItem'];
+      let postBody = opts['songItem'];
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = ['application/json'];
-      var accepts = ['text/plain'];
-      var returnType = 'String';
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = ['application/json'];
+      let accepts = ['text/plain'];
+      let returnType = 'String';
 
       return this.apiClient.callApi(
         '/song', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the addTag operation.
-     * @callback module:api/UsersApi~addTagCallback
-     * @param {String} error Error message, if any.
-     * @param {'String'} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * adds a song item
+     * Adds an item to the database
+     * @param {Object} opts Optional parameters
+     * @param {module:model/SongItem} opts.songItem Song item to add
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link 'String'}
      */
+    addSong(opts) {
+      return this.addSongWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * adds a tag item
      * Adds an item to the database
      * @param {Object} opts Optional parameters
      * @param {module:model/TagItem} opts.tagItem Tag item to add
-     * @param {module:api/UsersApi~addTagCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link 'String'}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link 'String'} and HTTP response
      */
-    this.addTag = function(opts, callback) {
+    addTagWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = opts['tagItem'];
+      let postBody = opts['tagItem'];
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = ['application/json'];
-      var accepts = ['text/plain'];
-      var returnType = 'String';
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = ['application/json'];
+      let accepts = ['text/plain'];
+      let returnType = 'String';
 
       return this.apiClient.callApi(
         '/tag', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the getYtItems operation.
-     * @callback module:api/UsersApi~getYtItemsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/YtVideoItem>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * adds a tag item
+     * Adds an item to the database
+     * @param {Object} opts Optional parameters
+     * @param {module:model/TagItem} opts.tagItem Tag item to add
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link 'String'}
      */
+    addTag(opts) {
+      return this.addTagWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get data
@@ -194,12 +190,11 @@
      * @param {String} title title to search
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit maximum number of records to return (default to 5)
-     * @param {module:api/UsersApi~getYtItemsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/YtVideoItem>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/YtVideoItem>} and HTTP response
      */
-    this.getYtItems = function(title, opts, callback) {
+    getYtItemsWithHttpInfo(title, opts) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
       // verify the required parameter 'title' is set
       if (title === undefined || title === null) {
@@ -207,47 +202,53 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
         'title': title,
-        'limit': opts['limit'],
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = [YtVideoItem];
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [YtVideoItem];
 
       return this.apiClient.callApi(
         '/ytitems', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the removeNote operation.
-     * @callback module:api/UsersApi~removeNoteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Get data
+     * By passing in url, you can fetch data 
+     * @param {String} title title to search
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit maximum number of records to return (default to 5)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/YtVideoItem>}
      */
+    getYtItems(title, opts) {
+      return this.getYtItemsWithHttpInfo(title, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * removes a note item
      * Removes an item from the database
      * @param {String} id note id
-     * @param {module:api/UsersApi~removeNoteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    this.removeNote = function(id, callback) {
-      var postBody = null;
+    removeNoteWithHttpInfo(id) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -255,46 +256,50 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
-        'id': id,
+      let queryParams = {
+        'id': id
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = [];
-      var accepts = [];
-      var returnType = null;
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/note', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the removeSong operation.
-     * @callback module:api/UsersApi~removeSongCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * removes a note item
+     * Removes an item from the database
+     * @param {String} id note id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeNote(id) {
+      return this.removeNoteWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * removes a song item
      * Removes an item from the database
      * @param {String} id song id
-     * @param {module:api/UsersApi~removeSongCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    this.removeSong = function(id, callback) {
-      var postBody = null;
+    removeSongWithHttpInfo(id) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -302,46 +307,50 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
-        'id': id,
+      let queryParams = {
+        'id': id
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = [];
-      var accepts = [];
-      var returnType = null;
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/song', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the removeTag operation.
-     * @callback module:api/UsersApi~removeTagCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * removes a song item
+     * Removes an item from the database
+     * @param {String} id song id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeSong(id) {
+      return this.removeSongWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * removes a song item
      * Removes an item from the database
      * @param {String} id tag id
-     * @param {module:api/UsersApi~removeTagCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    this.removeTag = function(id, callback) {
-      var postBody = null;
+    removeTagWithHttpInfo(id) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -349,37 +358,41 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
-        'id': id,
+      let queryParams = {
+        'id': id
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = [];
-      var accepts = [];
-      var returnType = null;
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/tag', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the searchNote operation.
-     * @callback module:api/UsersApi~searchNoteCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/NoteItem>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * removes a song item
+     * Removes an item from the database
+     * @param {String} id tag id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeTag(id) {
+      return this.removeTagWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * searches note
@@ -388,47 +401,53 @@
      * @param {String} opts.id note id
      * @param {Number} opts.skip number of records to skip for pagination
      * @param {Number} opts.limit maximum number of records to return
-     * @param {module:api/UsersApi~searchNoteCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/NoteItem>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/NoteItem>} and HTTP response
      */
-    this.searchNote = function(opts, callback) {
+    searchNoteWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
         'id': opts['id'],
         'skip': opts['skip'],
-        'limit': opts['limit'],
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = [NoteItem];
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [NoteItem];
 
       return this.apiClient.callApi(
         '/note', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the searchSong operation.
-     * @callback module:api/UsersApi~searchSongCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongItem>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * searches note
+     * By passing in the appropriate options, you can search for available note in the system 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id note id
+     * @param {Number} opts.skip number of records to skip for pagination
+     * @param {Number} opts.limit maximum number of records to return
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/NoteItem>}
      */
+    searchNote(opts) {
+      return this.searchNoteWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Search song
@@ -440,53 +459,59 @@
      * @param {String} opts.title a phrase song's title must contain
      * @param {Array.<String>} opts.tags tags which song must contain
      * @param {String} opts.sort type of sort to use
-     * @param {module:api/UsersApi~searchSongCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongItem>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/SongItem>} and HTTP response
      */
-    this.searchSong = function(opts, callback) {
+    searchSongWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
         'id': opts['id'],
         'skip': opts['skip'],
         'limit': opts['limit'],
         'title': opts['title'],
-        'sort': opts['sort'],
+        'tags': this.apiClient.buildCollectionParam(opts['tags'], 'multi'),
+        'sort': opts['sort']
       };
-      var collectionQueryParams = {
-        'tags': {
-          value: opts['tags'],
-          collectionFormat: 'multi'
-        },
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = [SongItem];
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [SongItem];
 
       return this.apiClient.callApi(
         '/song', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the searchTag operation.
-     * @callback module:api/UsersApi~searchTagCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/TagItem>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Search song
+     * By passing in the appropriate options, you can search for available song in the system 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id song id
+     * @param {Number} opts.skip number of records to skip for pagination
+     * @param {Number} opts.limit maximum number of records to return
+     * @param {String} opts.title a phrase song's title must contain
+     * @param {Array.<String>} opts.tags tags which song must contain
+     * @param {String} opts.sort type of sort to use
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/SongItem>}
      */
+    searchSong(opts) {
+      return this.searchSongWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Search tag
@@ -495,170 +520,196 @@
      * @param {String} opts.id tag id
      * @param {Number} opts.skip number of records to skip for pagination
      * @param {Number} opts.limit maximum number of records to return
-     * @param {module:api/UsersApi~searchTagCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/TagItem>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/TagItem>} and HTTP response
      */
-    this.searchTag = function(opts, callback) {
+    searchTagWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
         'id': opts['id'],
         'skip': opts['skip'],
-        'limit': opts['limit'],
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = [TagItem];
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [TagItem];
 
       return this.apiClient.callApi(
         '/tag', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the updateNote operation.
-     * @callback module:api/UsersApi~updateNoteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Search tag
+     * By passing in the appropriate options, you can search for available tag in the system 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.id tag id
+     * @param {Number} opts.skip number of records to skip for pagination
+     * @param {Number} opts.limit maximum number of records to return
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/TagItem>}
      */
+    searchTag(opts) {
+      return this.searchTagWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * updates a note item
      * Updates an item in the database
      * @param {Object} opts Optional parameters
      * @param {module:model/NoteItem} opts.noteItem Note item to update
-     * @param {module:api/UsersApi~updateNoteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    this.updateNote = function(opts, callback) {
+    updateNoteWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = opts['noteItem'];
+      let postBody = opts['noteItem'];
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = ['application/json'];
-      var accepts = [];
-      var returnType = null;
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/note', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the updateSong operation.
-     * @callback module:api/UsersApi~updateSongCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SongItem} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * updates a note item
+     * Updates an item in the database
+     * @param {Object} opts Optional parameters
+     * @param {module:model/NoteItem} opts.noteItem Note item to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    updateNote(opts) {
+      return this.updateNoteWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * updates a song item
      * Updates an item in the database
      * @param {Object} opts Optional parameters
      * @param {module:model/SongItem} opts.songItem Note item to update
-     * @param {module:api/UsersApi~updateSongCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SongItem}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SongItem} and HTTP response
      */
-    this.updateSong = function(opts, callback) {
+    updateSongWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = opts['songItem'];
+      let postBody = opts['songItem'];
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = ['application/json'];
-      var accepts = [];
-      var returnType = SongItem;
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = SongItem;
 
       return this.apiClient.callApi(
         '/song', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the updateTag operation.
-     * @callback module:api/UsersApi~updateTagCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * updates a song item
+     * Updates an item in the database
+     * @param {Object} opts Optional parameters
+     * @param {module:model/SongItem} opts.songItem Note item to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SongItem}
      */
+    updateSong(opts) {
+      return this.updateSongWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * updates a tag item
      * Updates an item in the database
      * @param {Object} opts Optional parameters
      * @param {module:model/TagItem} opts.tagItem Note item to update
-     * @param {module:api/UsersApi~updateTagCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    this.updateTag = function(opts, callback) {
+    updateTagWithHttpInfo(opts) {
       opts = opts || {};
-      var postBody = opts['tagItem'];
+      let postBody = opts['tagItem'];
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = ['AuthorizationHeader'];
-      var contentTypes = ['application/json'];
-      var accepts = [];
-      var returnType = null;
+      let authNames = ['AuthorizationHeader'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/tag', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
       );
     }
-  };
 
-  return exports;
-}));
+    /**
+     * updates a tag item
+     * Updates an item in the database
+     * @param {Object} opts Optional parameters
+     * @param {module:model/TagItem} opts.tagItem Note item to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    updateTag(opts) {
+      return this.updateTagWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+}

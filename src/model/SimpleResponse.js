@@ -14,38 +14,23 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.MellovApi) {
-      root.MellovApi = {};
-    }
-    root.MellovApi.SimpleResponse = factory(root.MellovApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The SimpleResponse model module.
-   * @module model/SimpleResponse
-   * @version 1.2.3
-   */
-
+/**
+ * The SimpleResponse model module.
+ * @module model/SimpleResponse
+ * @version 1.2.3
+ */
+export class SimpleResponse {
   /**
    * Constructs a new <code>SimpleResponse</code>.
    * @alias module:model/SimpleResponse
    * @class
    * @param message {String} 
    */
-  var exports = function(message) {
+  constructor(message) {
     this.message = message;
-  };
+  }
 
   /**
    * Constructs a <code>SimpleResponse</code> from a plain JavaScript object, optionally creating a new instance.
@@ -54,9 +39,9 @@
    * @param {module:model/SimpleResponse} obj Optional instance to populate.
    * @return {module:model/SimpleResponse} The populated <code>SimpleResponse</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new SimpleResponse();
       if (data.hasOwnProperty('message'))
         obj.message = ApiClient.convertToType(data['message'], 'String');
       if (data.hasOwnProperty('data'))
@@ -64,18 +49,16 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} message
-   */
-  exports.prototype.message = undefined;
+/**
+ * @member {String} message
+ */
+SimpleResponse.prototype.message = undefined;
 
-  /**
-   * @member {Object} data
-   */
-  exports.prototype.data = undefined;
+/**
+ * @member {Object} data
+ */
+SimpleResponse.prototype.data = undefined;
 
 
-  return exports;
-
-}));

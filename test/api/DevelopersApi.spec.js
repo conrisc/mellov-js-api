@@ -45,19 +45,17 @@
           opts.userCredentials.email = "mylogin@service.com";
           opts.userCredentials.password = "pa$$word";
 
-          instance.signInUser(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.signInUser(opts).then(function(data) {
             // TODO: update response assertions
             expect(data).to.be.a(MellovApi.SimpleResponse);
             expect(data.message).to.be.a('string');
-            expect(data.message).to.be("Request has been processed");
+            // expect(data.message).to.be("Request has been processed");
             expect(data.data).to.be.a(Object);
-            expect(data.data).to.be();
+            // expect(data.data).to.be();
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:
@@ -73,19 +71,17 @@
           opts.userCredentials.email = "mylogin@service.com";
           opts.userCredentials.password = "pa$$word";
 
-          instance.signUpUser(opts, function(error, data, response) {
-            if (error) {
-              done(error);
-              return;
-            }
+          instance.signUpUser(opts).then(function(data) {
             // TODO: update response assertions
             expect(data).to.be.a(MellovApi.SimpleResponse);
             expect(data.message).to.be.a('string');
-            expect(data.message).to.be("Request has been processed");
+            // expect(data.message).to.be("Request has been processed");
             expect(data.data).to.be.a(Object);
-            expect(data.data).to.be();
+            // expect(data.data).to.be();
 
             done();
+          }, function(error) {
+            done(error);
           });
           */
           // TODO: uncomment and complete method invocation above, then delete this line and the next:

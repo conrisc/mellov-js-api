@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.MellovApi) {
-      root.MellovApi = {};
-    }
-    root.MellovApi.UserPost = factory(root.MellovApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The UserPost model module.
-   * @module model/UserPost
-   * @version 1.2.3
-   */
-
+/**
+ * The UserPost model module.
+ * @module model/UserPost
+ * @version 1.2.3
+ */
+export class UserPost {
   /**
    * Constructs a new <code>UserPost</code>.
    * @alias module:model/UserPost
@@ -44,10 +29,10 @@
    * @param email {String} 
    * @param password {String} 
    */
-  var exports = function(email, password) {
+  constructor(email, password) {
     this.email = email;
     this.password = password;
-  };
+  }
 
   /**
    * Constructs a <code>UserPost</code> from a plain JavaScript object, optionally creating a new instance.
@@ -56,9 +41,9 @@
    * @param {module:model/UserPost} obj Optional instance to populate.
    * @return {module:model/UserPost} The populated <code>UserPost</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new UserPost();
       if (data.hasOwnProperty('email'))
         obj.email = ApiClient.convertToType(data['email'], 'String');
       if (data.hasOwnProperty('password'))
@@ -66,18 +51,16 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} email
-   */
-  exports.prototype.email = undefined;
+/**
+ * @member {String} email
+ */
+UserPost.prototype.email = undefined;
 
-  /**
-   * @member {String} password
-   */
-  exports.prototype.password = undefined;
+/**
+ * @member {String} password
+ */
+UserPost.prototype.password = undefined;
 
 
-  return exports;
-
-}));

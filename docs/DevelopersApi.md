@@ -18,22 +18,19 @@ signs in user
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
+import {MellovApi} from 'mellov_api';
 
-var apiInstance = new MellovApi.DevelopersApi();
+let apiInstance = new MellovApi.DevelopersApi();
 
-var opts = { 
+let opts = { 
   'userCredentials': new MellovApi.UserPost() // UserPost | User's credentials
 };
+apiInstance.signInUser(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.signInUser(opts, callback);
 ```
 
 ### Parameters
@@ -65,22 +62,19 @@ signs up new user
 
 ### Example
 ```javascript
-var MellovApi = require('mellov_api');
+import {MellovApi} from 'mellov_api';
 
-var apiInstance = new MellovApi.DevelopersApi();
+let apiInstance = new MellovApi.DevelopersApi();
 
-var opts = { 
+let opts = { 
   'userCredentials': new MellovApi.UserPost() // UserPost | User's credentials
 };
+apiInstance.signUpUser(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.signUpUser(opts, callback);
 ```
 
 ### Parameters

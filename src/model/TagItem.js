@@ -14,38 +14,23 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.MellovApi) {
-      root.MellovApi = {};
-    }
-    root.MellovApi.TagItem = factory(root.MellovApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The TagItem model module.
-   * @module model/TagItem
-   * @version 1.2.3
-   */
-
+/**
+ * The TagItem model module.
+ * @module model/TagItem
+ * @version 1.2.3
+ */
+export class TagItem {
   /**
    * Constructs a new <code>TagItem</code>.
    * @alias module:model/TagItem
    * @class
    * @param name {String} 
    */
-  var exports = function(name) {
+  constructor(name) {
     this.name = name;
-  };
+  }
 
   /**
    * Constructs a <code>TagItem</code> from a plain JavaScript object, optionally creating a new instance.
@@ -54,9 +39,9 @@
    * @param {module:model/TagItem} obj Optional instance to populate.
    * @return {module:model/TagItem} The populated <code>TagItem</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new TagItem();
       if (data.hasOwnProperty('_id'))
         obj.id = ApiClient.convertToType(data['_id'], 'String');
       if (data.hasOwnProperty('name'))
@@ -64,18 +49,16 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {String} id
+ */
+TagItem.prototype.id = undefined;
 
-  /**
-   * @member {String} name
-   */
-  exports.prototype.name = undefined;
+/**
+ * @member {String} name
+ */
+TagItem.prototype.name = undefined;
 
 
-  return exports;
-
-}));

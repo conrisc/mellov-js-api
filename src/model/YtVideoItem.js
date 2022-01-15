@@ -14,36 +14,21 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.MellovApi) {
-      root.MellovApi = {};
-    }
-    root.MellovApi.YtVideoItem = factory(root.MellovApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The YtVideoItem model module.
-   * @module model/YtVideoItem
-   * @version 1.2.3
-   */
-
+/**
+ * The YtVideoItem model module.
+ * @module model/YtVideoItem
+ * @version 1.2.3
+ */
+export class YtVideoItem {
   /**
    * Constructs a new <code>YtVideoItem</code>.
    * @alias module:model/YtVideoItem
    * @class
    */
-  var exports = function() {
-  };
+  constructor() {
+  }
 
   /**
    * Constructs a <code>YtVideoItem</code> from a plain JavaScript object, optionally creating a new instance.
@@ -52,9 +37,9 @@
    * @param {module:model/YtVideoItem} obj Optional instance to populate.
    * @return {module:model/YtVideoItem} The populated <code>YtVideoItem</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new YtVideoItem();
       if (data.hasOwnProperty('title'))
         obj.title = ApiClient.convertToType(data['title'], 'String');
       if (data.hasOwnProperty('videoId'))
@@ -64,23 +49,21 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} title
-   */
-  exports.prototype.title = undefined;
+/**
+ * @member {String} title
+ */
+YtVideoItem.prototype.title = undefined;
 
-  /**
-   * @member {String} videoId
-   */
-  exports.prototype.videoId = undefined;
+/**
+ * @member {String} videoId
+ */
+YtVideoItem.prototype.videoId = undefined;
 
-  /**
-   * @member {String} thumbnailUrl
-   */
-  exports.prototype.thumbnailUrl = undefined;
+/**
+ * @member {String} thumbnailUrl
+ */
+YtVideoItem.prototype.thumbnailUrl = undefined;
 
 
-  return exports;
-
-}));
