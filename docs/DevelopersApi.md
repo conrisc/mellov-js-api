@@ -1,6 +1,6 @@
 # MellovApi.DevelopersApi
 
-All URIs are relative to *https://what-appy-server.herokuapp.com/whatapi*
+All URIs are relative to *https://mellov-server.herokuapp.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 login user
 
-signs in user
+Create new session for a user
 
 ### Example
 ```javascript
@@ -58,7 +58,7 @@ No authorization required
 
 register new user
 
-signs up new user
+Create new user
 
 ### Example
 ```javascript

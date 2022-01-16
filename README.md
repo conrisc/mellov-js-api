@@ -86,7 +86,7 @@ api.signInUser(opts).then(function(data) {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://what-appy-server.herokuapp.com/whatapi*
+All URIs are relative to *https://mellov-server.herokuapp.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

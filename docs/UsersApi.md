@@ -1,6 +1,6 @@
 # MellovApi.UsersApi
 
-All URIs are relative to *https://what-appy-server.herokuapp.com/whatapi*
+All URIs are relative to *https://mellov-server.herokuapp.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 adds a note item
 
-Adds an item to the database
+Create new note
 
 ### Example
 ```javascript
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 adds a song item
 
-Adds an item to the database
+Add new song
 
 ### Example
 ```javascript
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 adds a tag item
 
-Adds an item to the database
+Add new tag
 
 ### Example
 ```javascript
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 Get data
 
-By passing in url, you can fetch data 
+Find yt items
 
 ### Example
 ```javascript
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 removes a note item
 
-Removes an item from the database
+Remove a note
 
 ### Example
 ```javascript
@@ -282,7 +282,7 @@ null (empty response body)
 
 removes a song item
 
-Removes an item from the database
+Remove a song
 
 ### Example
 ```javascript
@@ -332,7 +332,7 @@ null (empty response body)
 
 removes a song item
 
-Removes an item from the database
+Remove a tag
 
 ### Example
 ```javascript
@@ -382,7 +382,7 @@ null (empty response body)
 
 searches note
 
-By passing in the appropriate options, you can search for available note in the system 
+Find note(s)
 
 ### Example
 ```javascript
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 
 Search song
 
-By passing in the appropriate options, you can search for available song in the system 
+Find song(s)
 
 ### Example
 ```javascript
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 
 Search tag
 
-By passing in the appropriate options, you can search for available tag in the system 
+Find tag(s)
 
 ### Example
 ```javascript
@@ -553,7 +553,7 @@ Name | Type | Description  | Notes
 
 updates a note item
 
-Updates an item in the database
+Update a note
 
 ### Example
 ```javascript
@@ -604,7 +604,7 @@ null (empty response body)
 
 updates a song item
 
-Updates an item in the database
+Update a song
 
 ### Example
 ```javascript
@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 
 updates a tag item
 
-Updates an item in the database
+Update a tag
 
 ### Example
 ```javascript
